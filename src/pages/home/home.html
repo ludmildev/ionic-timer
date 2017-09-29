@@ -1,14 +1,34 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title text-center>
+      Timer
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-row>
+    <ion-col col-4>
+      <ion-item>
+        <ion-label floating>Seconds</ion-label>
+        <ion-input type="number" [(ngModel)]="seconds"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item>
+        <ion-label floating>Rest</ion-label>
+        <ion-input type="number"  [(ngModel)]="rest"></ion-input>
+      </ion-item>
+    </ion-col>   
+    <ion-col col-4>
+      <ion-item>
+        <ion-label floating>Series</ion-label>
+        <ion-input type="number"  [(ngModel)]="series"></ion-input>
+      </ion-item>
+    </ion-col> 
+  </ion-row>
+  <button style="margin-bottom: 100px;" ion-button full (click)="timer.initTimer()">SET</button>
+
+  <timer #timer [timeInSeconds]="seconds" [restTimeSeconds]="rest" [series]="series"></timer>
 </ion-content>
